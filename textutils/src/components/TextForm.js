@@ -13,6 +13,18 @@ export default function TextForm(props) {
         setText(newText)
     }
 
+    
+    const handleClear = () => {
+        let newText = '';
+        setText(newText)
+    }
+
+    // const handleTrim = () => {
+    //     let newText = text.trim();
+    //     setText(newText)
+    // }
+
+
     const handleOnChange = (event) => {
         // console.log("On Change");
         setText(event.target.value)
@@ -31,13 +43,19 @@ export default function TextForm(props) {
 
                 </div>
                 <button className="btn btn-primary mx-2" onClick={handleUpClick}> Convert to Uppercase</button>
-                <button className="btn btn-danger" onClick={handleLowClick}> Convert to Lowercase</button>
+                <button className="btn btn-danger mx-2" onClick={handleLowClick}> Convert to Lowercase</button>
+                <button className="btn btn-success mx-2" onClick={handleClear}> Clear All</button>
+                {/* <button className="btn btn-success" onClick={handleTrim}> TRIM</button> */}
+
+
                 
 
             </div>
             <div className="container">
                 <h2>Your Text Summary</h2>
                 <p><b>{text.split(" ").length} </b> words and <b>{text.length} </b>characters.</p>
+                <p><b>{text.split(".").length} </b> sentences </p>
+
                 <p>{0.008 * text.split(" ").length} time taken.</p>
 
                 <h3>Preview</h3>
