@@ -39,25 +39,25 @@ export default function TextForm(props) {
 
     return (
         <>
-            <div>
+            <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}} >
                 <h1>{props.heading} </h1>
                 <div className="mb-3 my-3">
-                    <textarea
-                        className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange}
+                    <textarea style={{backgroundColor:props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'#042743' }}
+                        className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange} 
                     ></textarea>
 
                 </div>
                 <button className="btn btn-primary mx-2" onClick={handleUpClick}> Convert to Uppercase</button>
-                <button className="btn btn-danger mx-2" onClick={handleLowClick}> Convert to Lowercase</button>
-                <button className="btn btn-success mx-2" onClick={handleClear}> Clear All</button>
-                <button className="btn btn-info mx-2" onClick={handleCopy}> Copy Text</button>
-                <button className="btn btn-warning mx-2" onClick={handleExtraSpaces}> Handle Extra Spacese</button>
+                <button className="btn btn-primary mx-2" onClick={handleLowClick}> Convert to Lowercase</button>
+                <button className="btn btn-primary mx-2" onClick={handleClear}> Clear All</button>
+                <button className="btn btn-primary mx-2" onClick={handleCopy}> Copy Text</button>
+                <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}> Handle Extra Spacese</button>
 
 
                 
 
             </div>
-            <div className="container">
+            <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
                 <h2>Your Text Summary</h2>
                 <p><b>{text.split(" ").length} </b> words and <b>{text.length} </b>characters.</p>
                 <p><b>{text.split(".").length} </b> sentences </p>
@@ -65,7 +65,7 @@ export default function TextForm(props) {
                 <p>{0.008 * text.split(" ").length} time taken.</p>
 
                 <h3>Preview</h3>
-                <p>{text}</p>
+                <p>{text.length>0?text:"Enter something in the textbox above to preview it"}</p>
 
             </div>
         </>
