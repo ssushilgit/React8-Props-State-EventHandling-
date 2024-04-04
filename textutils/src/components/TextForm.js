@@ -6,28 +6,38 @@ export default function TextForm(props) {
         let newText = text.toUpperCase();
         // setText("You have clicked on handleOnClick")
         setText(newText)
+        props.showAlert("Converted to uppercase!", "success");
+
     }
 
     const handleLowClick = () => {
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Converted to lowercase!", "success");
+
     }
 
     
     const handleClear = () => {
         let newText = '';
         setText(newText)
+        props.showAlert("Cleared!", "success");
+
     }
 
     const handleCopy = () =>{
         var text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Copied to Clipboard!", "success");
+
     }
 
     const handleExtraSpaces = () =>{
         let newText =text.split(/[ ]+/)
         setText(newText.join(" "))
+        props.showAlert("Handled extra spaces!", "success");
+
     }
 
     const handleOnChange = (event) => {
@@ -42,7 +52,7 @@ export default function TextForm(props) {
             <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}} >
                 <h1>{props.heading} </h1>
                 <div className="mb-3 my-3">
-                    <textarea style={{backgroundColor:props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'#042743' }}
+                    <textarea style={{backgroundColor:props.mode==='dark'?'#042743':'white', color: props.mode==='dark'?'white':'#042743' }}
                         className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange} 
                     ></textarea>
 
