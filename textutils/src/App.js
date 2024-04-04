@@ -1,5 +1,4 @@
-//Adding Auto Dismissing Alert Messages
-
+//  Change title dynamically
 
 // import logo from './logo.svg';
 
@@ -30,11 +29,20 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark Mode Enabled!", "success");
+      document.title ="TextUtils - Dark Mode";
+      // setInterval(()=> {
+      //   document.title ="TextUtils is an Amazing Mode";
+      // },2000);
+      // setInterval(()=> {
+      //   document.title ="Download TextUtils Now";
+      // },2000);
     }
     else{
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light Mode Enabled", "success");
+      document.title ="TextUtils - Light Mode";
+
 
     }
   }
