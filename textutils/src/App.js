@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextFormss from "./components/TextFormss";
-// import About from "./components/About";
+import About from "./components/About";
 import Alert from "./components/Alert";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import About from "./components/About";
 
@@ -30,40 +30,40 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark Mode Enabled!", "success");
-      document.title = "TextUtils - Dark Mode";
+      // document.title = "TextUtils - Dark Mode";
     } else {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light Mode Enabled", "success");
-      document.title = "TextUtils - Light Mode";
+      // document.title = "TextUtils - Light Mode";
     }
   };
 
-  // return <BrowserRouter>
+  return <BrowserRouter>
 
-  //   <Navbar title="TextUtils" about="About" contact="Contact" mode={mode} toggleMode={toggleMode} />
-  //   <Alert alert={alert} />
-  //   <div className="container">
-  //     <Routes>
-  //       <Route exact path="/about" element={<About />} />
-  //       <Route exact path="/" element={<TextFormss heading="Enter the text to analyze below:" mode={mode} showAlert={showAlert} />} />
-  //     </Routes>
-  //   </div>
-  //   {/* <About/> */}
-  //   {/* <TextForm/> */}
+    <Navbar title="TextUtils" about="About" contact="Contact" mode={mode} toggleMode={toggleMode} />
+    <Alert alert={alert} />
+    <div className="container">
+      <Routes>
+      <Route exact path="/about" element={<About mode={mode} />} />
+        <Route exact path="/" element={<TextFormss heading="Enter the text to analyze below:" mode={mode} showAlert={showAlert} />} />
+      </Routes>
+    </div>
+    {/* <About/> */}
+    {/* <TextForm/> */}
 
-  // </BrowserRouter>
+  </BrowserRouter>
 
   
-  return (
-    <>
-      <Navbar title="TextUtils" about="About"  mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className="container">
-        <TextFormss heading="Enter the text to analyze below:" mode={mode} showAlert={showAlert} />
-      </div>
-    </>
-  );
+  // return (
+  //   <>
+  //     <Navbar title="TextUtils" about="About"  mode={mode} toggleMode={toggleMode} />
+  //     <Alert alert={alert} />
+  //     <div className="container">
+  //       <TextFormss heading="Enter the text to analyze below:" mode={mode} showAlert={showAlert} />
+  //     </div>
+  //   </>
+  // );
 
 
 };
